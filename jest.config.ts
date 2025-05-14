@@ -10,7 +10,7 @@ export default () => {
       ...tsJestTransformCfg,
     },
     moduleNameMapper: {
-      "\\.(scss|sass|css)$": "identity-obj-proxy",
+      "\\.(scss|sass|css)$": "<rootDir>/node_modules/identity-obj-proxy",
     },
     transformIgnorePatterns: ["<rootDir>/node_modules/"],
   };

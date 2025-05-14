@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { CustomButtonProps } from "../../models/interfaces";
-import * as styles from "./CustomButton.module.scss";
+import styles from "./CustomButton.module.scss";
 
 export const CustomButton: FC<CustomButtonProps> = ({
   children,
@@ -9,8 +9,8 @@ export const CustomButton: FC<CustomButtonProps> = ({
   ...props
 }: CustomButtonProps) => {
   const className = [];
-  className.push(styles[variant]);
-  className.push(styles[size]);
+  if (variant) className.push(styles[variant]);
+  if (size) className.push(styles[size]);
   className.push(styles.button);
 
   return (

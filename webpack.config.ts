@@ -24,9 +24,9 @@ export default () => {
             {
               loader: "css-loader",
               options: {
-                esModule: true, // Говорим о том, что хотим использовать ES Modules
+                esModule: true,
                 modules: {
-                  namedExport: true, // Указываем, что предпочитаем именованый экспорт дефолтному
+                  namedExport: false,
                 },
               },
             },

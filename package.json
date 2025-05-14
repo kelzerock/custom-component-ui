@@ -2,13 +2,14 @@
   "name": "custom-component-ui-kelzerock",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint:fix": "eslint --fix --format friendly",
+    "lint:fix": "eslint . --fix",
     "prepare": "husky"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "@types/react-dom": "^19.1.5",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.1",
+    "css-loader": "^7.1.2",
     "eslint": "^9.26.0",
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
@@ -44,6 +46,9 @@
     "prettier": "3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "sass": "^1.88.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
     "stylelint": "^16.19.1",
     "stylelint-config-clean-order": "^7.0.0",
     "stylelint-config-css-modules": "^4.4.0",
@@ -55,11 +60,15 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
+    "typescript-plugin-css-modules": "^5.1.0",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1"
   },
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"
-  }
+  },
+  "files": [
+    "build"
+  ]
 }

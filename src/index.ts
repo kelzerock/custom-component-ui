@@ -1,2 +1,3 @@
-const a = 1;
-console.log(a + 3);
+import { CustomButton } from "./components/CustomButton/CustomButton";
+
+export { CustomButton };

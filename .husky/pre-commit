@@ -1,0 +1,2 @@
+export NODE_OPTIONS="--experimental-strip-types"
+npx lint-staged --config lint-staged.config.ts

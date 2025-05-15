@@ -16,6 +16,8 @@
   outline: none;
   border-radius: 5px;
   border: none;
+  min-height: 20px;
+  min-width: 50px;
 
   &:hover {
     cursor: pointer;

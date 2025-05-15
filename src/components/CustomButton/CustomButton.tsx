@@ -8,7 +8,7 @@ export const CustomButton: FC<CustomButtonProps> = ({
   size,
   ...props
 }: CustomButtonProps) => {
-  const className = [];
+  const className: string[] = [];
   if (variant) className.push(styles[variant]);
   if (size) className.push(styles[size]);
   className.push(styles.button);

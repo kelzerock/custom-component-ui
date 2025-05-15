@@ -6,6 +6,7 @@ const tsJestTransformCfg = createDefaultPreset().transform;
 export default () => {
   const config: Config = {
     testEnvironment: "jsdom",
+    setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
     transform: {
       ...tsJestTransformCfg,
     },

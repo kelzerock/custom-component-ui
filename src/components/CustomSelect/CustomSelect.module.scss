@@ -1,0 +1,48 @@
+@mixin shrinkSpan {
+  top: 0px;
+  left: 5px;
+  padding: 1px 3px;
+  font-size: .8rem;
+  border-radius: 3px;
+  transform: translateY(-50%);
+  background-color: var(--color-white);
+}
+
+.defaultOption {
+  display: none;
+}
+
+.wrapper {
+  position: relative;
+  margin: 10px;
+}
+
+.title {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: top 300ms ease, font-size 300ms ease;
+}
+
+.select {
+  min-height: 30px;
+  min-width: 120px;
+  border-radius: 5px;
+
+  &:focus {
+    border-color: var(--color-main-blue);
+    outline: none;
+  }
+}
+
+.select:focus~.title {
+  @include shrinkSpan();
+  color: var(--color-main-blue);
+}
+
+.select.shrink~.title {
+  @include shrinkSpan();
+}
+
+.option {}

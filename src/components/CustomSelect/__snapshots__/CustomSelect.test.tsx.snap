@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check CustomSelect check UI snapshot 1`] = `
+<div>
+  <div
+    class="wrapper"
+    data-testid="wrapper"
+  >
+    <select
+      class="select"
+      data-testid="select"
+    >
+      <option
+        class="defaultOption"
+        data-testid="defaultOption"
+        disabled=""
+        value=""
+      />
+    </select>
+    <span
+      class="title"
+      data-testid="title"
+    >
+      age
+    </span>
+  </div>
+</div>
+`;

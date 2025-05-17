@@ -1,0 +1,25 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 4px;
+
+  &:hover,
+  &:hover .checkbox {
+    cursor: pointer;
+  }
+
+  &.disabled:hover,
+  &.disabled:hover .checkbox {
+    cursor: default;
+  }
+}
+
+
+.checkbox {
+  margin: 2px;
+  accent-color: var(--color-main-blue);
+}
+
+.title {
+  padding: 2px;
+}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check UI snapshot 1`] = `
+<div>
+  <label
+    class="wrapper"
+    data-testid="wrapper"
+  >
+    <input
+      class="checkbox"
+      data-testid="checkbox"
+      type="checkbox"
+    />
+    <span
+      class="title"
+      data-testid="title"
+    >
+      Test
+    </span>
+  </label>
+</div>
+`;

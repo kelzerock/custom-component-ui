@@ -21,63 +21,63 @@ describe("check CustomCheckbox component", () => {
     expect(title).toBeInTheDocument();
     expect(title).toHaveClass(styles.title);
   });
-});
 
-it("Title doesn't rendered without props", () => {
-  render(<CustomCheckbox />);
-  const title = screen.queryByTestId(Checkbox.title);
-  expect(title).toBeNull();
-});
+  it("Title doesn't rendered without props", () => {
+    render(<CustomCheckbox />);
+    const title = screen.queryByTestId(Checkbox.title);
+    expect(title).toBeNull();
+  });
 
-it("Disable state correctly rendered", () => {
-  render(<CustomCheckbox disabled />);
-  const checkbox = screen.getByTestId(Checkbox.checkbox);
-  expect(checkbox).toHaveAttribute("disabled");
-});
+  it("Disable state correctly rendered", () => {
+    render(<CustomCheckbox disabled />);
+    const checkbox = screen.getByTestId(Checkbox.checkbox);
+    expect(checkbox).toHaveAttribute("disabled");
+  });
 
-it("Checked state correctly rendered when checked equal true", () => {
-  render(<CustomCheckbox checked />);
-  const checkbox = screen.getByTestId(Checkbox.checkbox);
-  expect(checkbox).toHaveAttribute("checked");
-});
+  it("Checked state correctly rendered when checked equal true", () => {
+    render(<CustomCheckbox checked />);
+    const checkbox = screen.getByTestId(Checkbox.checkbox);
+    expect(checkbox).toHaveAttribute("checked");
+  });
 
-it("Checked status correctly rendered when checked equal false", () => {
-  render(<CustomCheckbox checked={false} />);
-  const checkbox = screen.getByTestId(Checkbox.checkbox);
-  expect(checkbox).not.toHaveAttribute("checked");
-});
+  it("Checked status correctly rendered when checked equal false", () => {
+    render(<CustomCheckbox checked={false} />);
+    const checkbox = screen.getByTestId(Checkbox.checkbox);
+    expect(checkbox).not.toHaveAttribute("checked");
+  });
 
-it("Correctly changed status checkbox", async () => {
-  render(<CustomCheckbox />);
-  const checkbox = screen.getByTestId(Checkbox.checkbox);
-  expect(checkbox).toBeInTheDocument();
+  it("Correctly changed status checkbox", async () => {
+    render(<CustomCheckbox />);
+    const checkbox = screen.getByTestId(Checkbox.checkbox);
+    expect(checkbox).toBeInTheDocument();
 
-  if (!(checkbox instanceof HTMLInputElement)) {
-    throw new Error("Checkbox is not an instance of HTMLInputElement");
-  }
+    if (!(checkbox instanceof HTMLInputElement)) {
+      throw new Error("Checkbox is not an instance of HTMLInputElement");
+    }
 
-  expect(checkbox.checked).toBe(false);
-  await userEvent.click(checkbox);
-  expect(checkbox.checked).toBe(true);
-  await userEvent.click(checkbox);
-  expect(checkbox.checked).toBe(false);
-});
+    expect(checkbox.checked).toBe(false);
+    await userEvent.click(checkbox);
+    expect(checkbox.checked).toBe(true);
+    await userEvent.click(checkbox);
+    expect(checkbox.checked).toBe(false);
+  });
 
-it("toggles checkbox state when clicking on label", async () => {
-  render(<CustomCheckbox title="Click me" />);
-  const wrapper = screen.getByTestId(Checkbox.wrapper);
-  const checkbox = screen.getByTestId(Checkbox.checkbox);
+  it("toggles checkbox state when clicking on label", async () => {
+    render(<CustomCheckbox title="Click me" />);
+    const wrapper = screen.getByTestId(Checkbox.wrapper);
+    const checkbox = screen.getByTestId(Checkbox.checkbox);
 
-  if (!(checkbox instanceof HTMLInputElement)) {
-    throw new Error("Checkbox is not an instance of HTMLInputElement");
-  }
+    if (!(checkbox instanceof HTMLInputElement)) {
+      throw new Error("Checkbox is not an instance of HTMLInputElement");
+    }
 
-  expect(checkbox.checked).toBe(false);
-  await userEvent.click(wrapper);
-  expect(checkbox.checked).toBe(true);
-});
+    expect(checkbox.checked).toBe(false);
+    await userEvent.click(wrapper);
+    expect(checkbox.checked).toBe(true);
+  });
 
-test("check UI snapshot", () => {
-  const { container } = render(<CustomCheckbox title="Test" color="green" />);
-  expect(container).toMatchSnapshot();
+  test("check UI snapshot", () => {
+    const { container } = render(<CustomCheckbox title="Test" color="green" />);
+    expect(container).toMatchSnapshot();
+  });
 });

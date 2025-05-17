@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`check UI snapshot 1`] = `
+exports[`check CustomCheckbox component check UI snapshot 1`] = `
 <div>
   <label
     class="wrapper"

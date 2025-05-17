@@ -4,4 +4,5 @@ export interface CustomCheckboxProps
   extends InputHTMLAttributes<HTMLInputElement> {
   title?: string;
   color?: string;
+  defaultChecked?: boolean;
 }

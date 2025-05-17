@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check CustomSwitch component Check UI snapshot 1`] = `
+<div>
+  <label
+    class="wrapper"
+    data-testid="wrapper"
+  >
+    <span
+      class="switchBox"
+      data-testid="switchBox"
+    >
+      <span
+        class="switch"
+        data-testid="switch"
+        style="background-color: green;"
+      >
+        <span
+          class="switchDash"
+          data-testid="switchDash"
+        />
+        <span
+          class="switchPoint"
+          data-testid="switchPoint"
+        />
+      </span>
+      <input
+        class="checkbox"
+        data-testid="input"
+        type="checkbox"
+      />
+    </span>
+    <span
+      class="title"
+      data-testid="title"
+    >
+      Test
+    </span>
+  </label>
+</div>
+`;

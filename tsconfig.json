@@ -16,8 +16,8 @@
         "name": "typescript-plugin-css-modules"
       }
     ],
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom", "node"]
   },
-  "include": ["src", "global.d.ts", "./jest-setup.ts"],
+  "include": ["src", "global.d.ts"],
   "exclude": ["jest.config.ts"]
 }

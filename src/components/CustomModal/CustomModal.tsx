@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { CustomModalProps } from "../../models/interfaces/custom-modal-props";
 import styles from "./CustomModal.module.scss";
 import { Modal } from "../../models/enums";
 
-export const CustomModal = ({
+export const CustomModal: FC<CustomModalProps> = ({
   onClose,
   open,
   children,

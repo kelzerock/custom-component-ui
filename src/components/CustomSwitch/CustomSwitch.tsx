@@ -1,10 +1,10 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { Switch } from "../../models/enums";
 import { CustomCheckboxProps } from "../../models/interfaces";
 import styles from "./CustomSwitch.module.scss";
 import clsx from "clsx";
 
-export const CustomSwitch = ({
+export const CustomSwitch: FC<CustomCheckboxProps> = ({
   title,
   color,
   ...props

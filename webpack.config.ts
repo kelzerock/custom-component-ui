@@ -9,6 +9,7 @@ export default () => {
       path: path.resolve(__dirname, "build"),
       filename: "index.js",
       libraryTarget: "umd",
+      clean: true,
     },
     module: {
       rules: [
@@ -37,6 +38,9 @@ export default () => {
     },
     resolve: {
       extensions: [".tsx", ".ts"],
+    },
+    externals: {
+      react: "react",
     },
   };
 

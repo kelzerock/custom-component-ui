@@ -1,6 +1,6 @@
 {
   "name": "custom-component-ui-kelzerock",
-  "version": "1.0.1",
+  "version": "1.0.13",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -31,6 +31,8 @@
   },
   "homepage": "https://github.com/kelzerock/custom-component-ui#readme",
   "devDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.26.0",
@@ -63,8 +65,6 @@
     "lint-staged": "^16.0.0",
     "mini-css-extract-plugin": "^2.9.2",
     "prettier": "3.5.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "sass": "^1.88.0",
     "sass-loader": "^16.0.5",
     "storybook": "^8.6.12",
@@ -85,7 +85,11 @@
     "typescript-eslint": "^8.32.1",
     "typescript-plugin-css-modules": "^5.1.0",
     "webpack": "^5.99.8",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "@storybook/preset-scss": "^1.0.3",
+    "@testing-library/user-event": "^14.6.1",
+    "clsx": "^2.1.1",
+    "jest-environment-jsdom": "^29.7.0"
   },
   "peerDependencies": {
     "react": "*",
@@ -94,12 +98,7 @@
   "files": [
     "build"
   ],
-  "dependencies": {
-    "@storybook/preset-scss": "^1.0.3",
-    "@testing-library/user-event": "^14.6.1",
-    "clsx": "^2.1.1",
-    "jest-environment-jsdom": "^29.7.0"
-  },
+  "dependencies": {},
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"

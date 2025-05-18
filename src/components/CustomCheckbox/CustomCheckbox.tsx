@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Checkbox } from "../../models/enums";
 import { CustomCheckboxProps } from "../../models/interfaces";
 import styles from "./CustomCheckbox.module.scss";
@@ -15,9 +15,18 @@ export const CustomCheckbox = ({
     props.checked ?? false,
   );
 
-  const handleClick = () => {
-    setCheckedState((prev) => !prev);
+  const handleClick = (event: ChangeEvent<HTMLInputElement>) => {
+    if (props.disabled) return;
+
+    if (props.onChange !== undefined) {
+      props.onChange(event);
+    } else {
+      setCheckedState((prev) => !prev);
+    }
   };
+
+  const isControlled = props.checked !== undefined;
+  const checked = isControlled ? props.checked : checkedState;
 
   return (
     <label
@@ -28,7 +37,7 @@ export const CustomCheckbox = ({
         onChange={handleClick}
         {...props}
         type="checkbox"
-        checked={checkedState}
+        checked={checked}
         className={styles.checkbox}
         style={{ accentColor: color }}
         data-testid={Checkbox.checkbox}

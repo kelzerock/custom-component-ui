@@ -46,3 +46,15 @@
 }
 
 .option {}
+
+.disabled {
+  color: var(--color-dark-gray-400);
+
+  & .select {
+    pointer-events: none
+  }
+
+  & .title {
+    @include shrinkSpan();
+  }
+}

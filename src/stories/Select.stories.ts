@@ -13,18 +13,39 @@ export const Primary: Story = {
   args: {
     title: "age",
     options: [
-      { value: 10, title: "ten", id: 1 },
-      { value: 20, title: "twenty", id: 2 },
-      { value: 30, title: "thirty", id: 3 },
+      { value: 10, title: "ten" },
+      { value: 20, title: "twenty" },
+      { value: 30, title: "thirty" },
     ],
   },
 };
 export const WithoutTitle: Story = {
   args: {
     options: [
-      { value: 10, title: "ten", id: 1 },
-      { value: 20, title: "twenty", id: 2 },
-      { value: 30, title: "thirty", id: 3 },
+      { value: 10, title: "ten" },
+      { value: 20, title: "twenty" },
+      { value: 30, title: "thirty" },
     ],
+  },
+};
+export const Disabled: Story = {
+  args: {
+    options: [
+      { value: 10, title: "ten" },
+      { value: 20, title: "twenty" },
+      { value: 30, title: "thirty" },
+    ],
+    title: "age",
+    disabled: true,
+  },
+};
+export const WithSelectedOption: Story = {
+  args: {
+    options: [
+      { value: 10, title: "ten" },
+      { value: 20, title: "twenty", defaultSelect: true },
+      { value: 30, title: "thirty" },
+    ],
+    title: "age",
   },
 };

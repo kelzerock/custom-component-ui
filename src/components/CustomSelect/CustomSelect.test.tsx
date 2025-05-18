@@ -21,17 +21,14 @@ describe("check CustomSelect", () => {
   test("check options correct render", () => {
     const options: OptionsData[] = [
       {
-        id: 1,
         title: "one",
         value: 1,
       },
       {
-        id: 2,
         title: "two",
         value: 2,
       },
       {
-        id: 3,
         title: "three",
         value: 3,
       },

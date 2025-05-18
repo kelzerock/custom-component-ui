@@ -1,4 +1,8 @@
 .wrapper__wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+  padding: 10px;
+  border: solid 2px #00000060;
+  border-radius: 10px;
 }

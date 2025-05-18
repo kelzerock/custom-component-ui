@@ -1,0 +1,77 @@
+@mixin shrinkLabel {
+  top: 0px;
+  left: 10px;
+  padding: 1px 3px;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  transform: translateY(-50%);
+}
+
+.wrapper {
+  position: relative;
+  margin: 10px;
+}
+
+
+.label {
+  background-color: var(--color-white);
+  color: var(--color-dark-gray);
+  font-size: 1.7rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: top 300ms ease, font-size 300ms ease;
+
+  &.shrink {
+    @include shrinkLabel();
+  }
+}
+
+.error .label {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.input {
+  min-height: 30px;
+  min-width: 50px;
+  border: solid 2px var(--color-gray);
+  background: none;
+  background-color: white;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border-radius: 5px;
+}
+
+.error .input {
+  border: solid 2px var(--color-red);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-main-blue);
+}
+
+.error .input:focus {
+  outline: none;
+  border-color: var(--color-red);
+}
+
+
+.input:focus~.label {
+  @include shrinkLabel();
+  color: var(--color-main-blue)
+}
+
+.error .input:focus~.label {
+  @include shrinkLabel();
+  color: var(--color-red)
+}
+
+.shrink~.label {
+  @include shrinkLabel();
+}

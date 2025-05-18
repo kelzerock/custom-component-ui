@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check CustomModal component check UI snapshot 1`] = `
+<div>
+  <button
+    data-testid="button"
+  >
+    Open modal
+  </button>
+  <div
+    class="wrapper"
+    data-testid="wrapper"
+  >
+    <div
+      class="modal"
+      data-testid="modal"
+    >
+      Modal content
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test CustomButton component check UI snapshot 1`] = `
+<div>
+  <button
+    class="button"
+  >
+    Snapshot
+  </button>
+</div>
+`;

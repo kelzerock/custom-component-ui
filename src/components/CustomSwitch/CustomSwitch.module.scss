@@ -1,0 +1,124 @@
+:root {
+  --animation: .1s
+}
+
+.wrapper {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  padding: 2px 4px;
+
+  &:hover,
+  &:hover .checkbox {
+    cursor: pointer;
+  }
+
+  &.disabled:hover,
+  &.disabled:hover .checkbox {
+    cursor: default;
+  }
+}
+
+
+.switchBox {
+  width: 40px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  display: block;
+  width: 50%;
+  height: 0px;
+  overflow: visible;
+  background-color: var(--color-main-blue);
+  position: relative;
+  z-index: 3;
+}
+
+.switchDash {
+  height: 14px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+  background-color: var(--color-dark-gray);
+  opacity: .5;
+}
+
+.checked .switchDash {
+  background-color: inherit;
+}
+
+.switchPoint {
+  height: 100%;
+  aspect-ratio: 1;
+  left: 0;
+  transform: translateX(-50%);
+  right: auto;
+  position: relative;
+  display: block;
+  transition: left var(--animation) ease-in, transform var(--animation) ease-in;
+  background-color: inherit;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: inherit;
+    border-radius: 50%;
+    z-index: 3;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: inherit;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: .2;
+  }
+}
+
+.checked .switchPoint {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.checkbox {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.title {
+  padding: 2px;
+}
+
+.disabled .switchPoint {
+  &:hover::after {
+    opacity: 0;
+  }
+}
+
+.disabled .title {
+  color: var(--color-dark-gray-400);
+}

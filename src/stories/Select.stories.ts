@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CustomSelect } from "../components/CustomSelect/CustomSelect";
+import { CustomSelect } from "../components";
 
 const meta: Meta<typeof CustomSelect> = {
   component: CustomSelect,

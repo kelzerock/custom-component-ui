@@ -3,3 +3,4 @@ export { CustomTextField } from "./CustomTextField/CustomTextField";
 export { CustomCheckbox } from "./CustomCheckbox/CustomCheckbox";
 export { CustomSelect } from "./CustomSelect/CustomSelect";
 export { CustomSwitch } from "./CustomSwitch/CustomSwitch";
+export { CustomModal } from "./CustomModal/CustomModal";

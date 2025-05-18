@@ -1,0 +1,27 @@
+.wrapper {
+  padding: 2px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000040;
+  backdrop-filter: blur(1px);
+}
+
+.modal {
+  margin: 20px 10px;
+  padding: 10px;
+  background-color: var(--color-white);
+  border-radius: 5px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.lock {
+  overflow: hidden;
+}

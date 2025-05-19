@@ -6,46 +6,40 @@ import clsx from "clsx";
 export const CustomSelect: FC<CustomSelectProps> = ({
   options = [],
   title,
-  onChange,
-  disabled,
-  className,
-  value,
   ...props
 }: CustomSelectProps) => {
   const defaultSelected = useMemo(
     () => options.find((el) => el.defaultSelect === true) || null,
     [options],
   );
-
   const [selectedValue, setSelectedValue] = useState<OptionsData | null>(
     defaultSelected,
   );
-
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    if (disabled) return;
+    console.log("start");
+    if (props.disabled) return;
 
     const selectedOption = options.find((opt) => {
+      console.log(opt.value, event.target.value);
+
       return String(opt.value) === event.target.value;
     });
+    console.log({ selectedOption });
     setSelectedValue(selectedOption || null);
+
+    event.target.classList.toggle(styles.shrink, event.target.value !== "");
   };
 
   return (
     <div
-      className={clsx(styles.wrapper, disabled && styles.disabled)}
+      className={clsx(styles.wrapper, props.disabled && styles.disabled)}
       data-testid="wrapper"
     >
       <select
-        className={clsx(
-          styles.select,
-          (value || defaultSelected) && styles.shrink,
-          className,
-        )}
-        value={value ?? (selectedValue?.value || "")}
-        onChange={onChange ?? handleChange}
-        disabled={disabled}
+        className={clsx(styles.select, defaultSelected && styles.shrink)}
+        value={selectedValue?.value || ""}
+        onChange={handleChange}
         data-testid="select"
-        {...props}
       >
         {defaultSelected === null && (
           <option

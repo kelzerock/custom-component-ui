@@ -16,10 +16,10 @@ export const Primary: Story = {
   },
 };
 
-export const WithDefaultValue: Story = {
+export const WithText: Story = {
   args: {
     label: "outline",
-    // defaultValue: "some text",
+    value: "some text",
   },
 };
 
@@ -29,7 +29,7 @@ export const error: Story = {
     error: true,
   },
 };
-export const WithErrorAndValue: Story = {
+export const errorWithText: Story = {
   args: {
     label: "outline",
     error: true,

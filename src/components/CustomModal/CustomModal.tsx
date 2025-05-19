@@ -2,26 +2,25 @@ import { FC, useEffect } from "react";
 import { CustomModalProps } from "../../models/interfaces/custom-modal-props";
 import styles from "./CustomModal.module.scss";
 import { Modal } from "../../models/enums";
-import clsx from "clsx";
 
 export const CustomModal: FC<CustomModalProps> = ({
   onClose,
   open,
   children,
-  onClick,
-  className,
   ...props
 }: CustomModalProps) => {
   useEffect(() => {
-    if (open) document.body.classList.add(styles.lock);
-
-    return () => {
+    if (open) {
+      document.body.classList.add(styles.lock);
+    } else {
       document.body.classList.remove(styles.lock);
-    };
+    }
   }, [open]);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (event.target === event.currentTarget) onClose();
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
   };
 
   useEffect(() => {
@@ -43,14 +42,12 @@ export const CustomModal: FC<CustomModalProps> = ({
   return (
     <div
       className={styles.wrapper}
-      onClick={onClick ?? handleClick}
+      onClick={(event) => {
+        handleClick(event);
+      }}
       data-testid={Modal.wrapper}
     >
-      <div
-        className={clsx(styles.modal, className)}
-        {...props}
-        data-testid={Modal.modal}
-      >
+      <div className={styles.modal} {...props} data-testid={Modal.modal}>
         {children}
       </div>
     </div>

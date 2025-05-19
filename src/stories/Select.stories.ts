@@ -49,7 +49,7 @@ export const WithSelectedOption: Story = {
     title: "age",
   },
 };
-export const UncontrolledSelected: Story = {
+export const ControlledSelected: Story = {
   args: {
     options: [
       { value: 10, title: "ten" },

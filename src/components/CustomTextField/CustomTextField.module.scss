@@ -12,7 +12,6 @@
   padding: 10px;
 }
 
-
 .label {
   background-color: var(--color-white);
   color: var(--color-dark-gray);
@@ -30,10 +29,6 @@
   }
 }
 
-.error .label {
-  border-color: var(--color-red);
-  color: var(--color-red);
-}
 
 .input {
   min-height: 30px;
@@ -46,31 +41,38 @@
   padding: 10px 10px 10px 5px;
   display: block;
   border-radius: 5px;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-main-blue);
+
+    &~.label {
+      @include shrinkLabel();
+      color: var(--color-main-blue)
+    }
+  }
 }
 
-.error .input {
-  border: solid 2px var(--color-red);
-}
+.error {
+  & .label {
+    border-color: var(--color-red);
+    color: var(--color-red);
+  }
 
-.input:focus {
-  outline: none;
-  border-color: var(--color-main-blue);
-}
+  & .input {
+    border: solid 2px var(--color-red);
 
-.error .input:focus {
-  outline: none;
-  border-color: var(--color-red);
-}
+    &:focus {
+      outline: none;
+      border-color: var(--color-red);
 
+      &~.label {
+        @include shrinkLabel();
+        color: var(--color-red)
+      }
+    }
+  }
 
-.input:focus~.label {
-  @include shrinkLabel();
-  color: var(--color-main-blue)
-}
-
-.error .input:focus~.label {
-  @include shrinkLabel();
-  color: var(--color-red)
 }
 
 .shrink~.label {

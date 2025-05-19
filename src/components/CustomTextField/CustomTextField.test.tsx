@@ -1,22 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import { CustomTextField } from "./CustomTextField";
-import { TextField } from "../../models/enums";
-import styles from "./CustomTextField.module.scss";
 
 describe("check CustomTextField", () => {
   test("check input element", () => {
     const value = "test value";
     render(<CustomTextField value={value} />);
 
-    const textField = screen.getByTestId(TextField.input);
+    const textField = screen.getByRole("textbox");
     expect(textField).toHaveAttribute("type", "text");
     expect(textField).toHaveAttribute("value", value);
-    expect(textField).toHaveClass(styles.input);
+    expect(textField).toHaveClass("input");
   });
 
   test("check custom 'error' props", () => {
     render(<CustomTextField error={true} />);
-    const wrapper = screen.getByTestId(TextField.wrapper);
+    const wrapper = screen.getByTestId("wrapper");
 
     expect(wrapper).toHaveClass("error");
   });

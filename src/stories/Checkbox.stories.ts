@@ -24,24 +24,17 @@ export const DisabledChecked: Story = {
   args: {
     title: "Test",
     disabled: true,
-    defaultChecked: true,
+    checked: true,
   },
 };
 export const DisabledUnchecked: Story = {
   args: {
     title: "Test",
     disabled: true,
-    defaultChecked: false,
+    checked: false,
   },
 };
 export const CustomColor: Story = {
-  args: {
-    title: "Test",
-    defaultChecked: true,
-    color: "green",
-  },
-};
-export const ControlledCheckbox: Story = {
   args: {
     title: "Test",
     checked: true,

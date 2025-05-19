@@ -7,14 +7,11 @@ exports[`check CustomTextField check UI snapshot 1`] = `
     data-testid="wrapper"
   >
     <input
-      class="input"
-      data-testid="input"
+      class="input "
       type="text"
-      value=""
     />
     <label
       class="label"
-      data-testid="label"
     >
       test
     </label>

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { Checkbox } from "../../models/enums";
 import { CustomCheckboxProps } from "../../models/interfaces";
 import styles from "./CustomCheckbox.module.scss";
@@ -7,39 +7,40 @@ import clsx from "clsx";
 export const CustomCheckbox: FC<CustomCheckboxProps> = ({
   title,
   color,
-  onChange,
-  checked,
-  required,
-  className,
-  disabled,
-  defaultChecked,
   ...props
 }: CustomCheckboxProps) => {
+  const { required } = props;
   const requiredBlock = required ? " *" : "";
   const [checkedState, setCheckedState] = useState<boolean>(
-    defaultChecked ?? false,
+    props.checked ?? false,
   );
 
-  const handleClick = () => {
-    if (disabled) return;
+  const handleClick = (event: ChangeEvent<HTMLInputElement>) => {
+    if (props.disabled) return;
 
-    setCheckedState((prev) => !prev);
+    if (props.onChange !== undefined) {
+      props.onChange(event);
+    } else {
+      setCheckedState((prev) => !prev);
+    }
   };
+
+  const isControlled = props.checked !== undefined;
+  const checked = isControlled ? props.checked : checkedState;
 
   return (
     <label
-      className={clsx(styles.wrapper, disabled && styles.disabled)}
+      className={clsx(styles.wrapper, props.disabled && styles.disabled)}
       data-testid={Checkbox.wrapper}
     >
       <input
-        onChange={onChange ?? handleClick}
+        onChange={handleClick}
+        {...props}
         type="checkbox"
-        checked={checked ?? checkedState}
-        className={clsx(styles.checkbox, className)}
+        checked={checked}
+        className={styles.checkbox}
         style={{ accentColor: color }}
         data-testid={Checkbox.checkbox}
-        disabled={disabled}
-        {...props}
       />
       {title && (
         <span

@@ -1,25 +1,20 @@
 import { FC } from "react";
 import { CustomButtonProps } from "../../models/interfaces";
 import styles from "./CustomButton.module.scss";
-import clsx from "clsx";
 
 export const CustomButton: FC<CustomButtonProps> = ({
   children,
   variant,
   size,
-  className,
   ...props
 }: CustomButtonProps) => {
+  const className: string[] = [];
+  if (variant) className.push(styles[variant]);
+  if (size) className.push(styles[size]);
+  className.push(styles.button);
+
   return (
-    <button
-      className={clsx(
-        styles.button,
-        variant && styles[variant],
-        size && styles[size],
-        className,
-      )}
-      {...props}
-    >
+    <button {...props} className={className.join(" ")}>
       {children}
     </button>
   );

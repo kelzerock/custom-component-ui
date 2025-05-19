@@ -1,41 +1,51 @@
 import { FC, useState } from "react";
 import styles from "./CustomTextField.module.scss";
 import { CustomTextFieldProps } from "../../models/interfaces";
+import clsx from "clsx";
+import { TextField } from "../../models/enums";
 
 export const CustomTextField: FC<CustomTextFieldProps> = ({
   label,
   error,
+  defaultValue,
   value,
+  className,
+  onChange,
   ...props
 }: CustomTextFieldProps) => {
-  const [valueInput, setValueInput] = useState(value);
-  const className = [styles.wrapper];
-  if (error) {
-    className.push(styles.error);
-  }
-  const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
+  const [valueInput, setValueInput] = useState(defaultValue ?? "");
+
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { target } = event;
     if (target instanceof HTMLInputElement) {
       const { value } = target;
       setValueInput(value);
-      if (value.trim() !== "") {
-        target.classList.add(styles.shrink);
-      } else {
-        target.classList.remove(styles.shrink);
-      }
     }
   };
 
   return (
-    <div className={className.join(" ")} data-testid="wrapper">
+    <div
+      className={clsx(styles.wrapper, error && styles.error)}
+      data-testid={TextField.wrapper}
+    >
       <input
         type="text"
-        className={`${styles.input} ${valueInput ? styles.shrink : ""}`}
-        value={valueInput}
-        onInput={handleInput}
+        className={clsx(
+          styles.input,
+          (value || (typeof valueInput === "string" && valueInput.trim())) &&
+            styles.shrink,
+          className,
+        )}
+        value={value ?? valueInput}
+        onChange={onChange ?? handleChange}
         {...props}
+        data-testid={TextField.input}
       ></input>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && (
+        <label className={styles.label} data-testid={TextField.label}>
+          {label}
+        </label>
+      )}
     </div>
   );
 };

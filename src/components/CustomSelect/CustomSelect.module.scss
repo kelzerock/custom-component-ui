@@ -33,19 +33,18 @@
   &:focus {
     border-color: var(--color-main-blue);
     outline: none;
+
+    &~.title {
+      @include shrinkSpan();
+      color: var(--color-main-blue);
+    }
+  }
+
+  &.shrink~.title {
+    @include shrinkSpan();
   }
 }
 
-.select:focus~.title {
-  @include shrinkSpan();
-  color: var(--color-main-blue);
-}
-
-.select.shrink~.title {
-  @include shrinkSpan();
-}
-
-.option {}
 
 .disabled {
   color: var(--color-dark-gray-400);
